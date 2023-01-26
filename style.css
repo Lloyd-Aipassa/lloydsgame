@@ -101,9 +101,19 @@ input {
     text-align: center;
 }
 
+#check{
+    border-radius: 8px;
+    border-bottom: 4px solid black;
+}
+
+#check:active{
+    border: none;
+}
+
 .win{
     background-color: red!important;
     opacity: 0.5;
+    pointer-events: none;
 }
 
 

@@ -1,19 +1,27 @@
 let secretNumber = Math.ceil(Math.random() * 20);
 let score = 20;
+let highScore = 0;
 let button = document.getElementById("check");
 document.querySelector("#check").addEventListener("click", function () {
 	const numberGuess = document.querySelector("input").value;
     document.querySelector("input").value = '';
-	//gewonnen
+	
+    
+    //gewonnen
 	if (numberGuess == secretNumber) {
 		document.querySelector("h1").textContent = "Yesss";
-		// document.querySelector(".check").disabled = "false";
-		// document.querySelector(".check").style.backgroundColor = "red";
 		button.classList.add("win");
 		document.querySelector(".secretNum").textContent = secretNumber;
+        if(score > highScore){
+            highScore = score;
+            document.querySelector(".Highscore").textContent = score;
+        }
+       
 	}
 
-	//kies een hoger getal
+	
+    
+    //kies een hoger getal
 	else if (numberGuess < secretNumber) {
 		numberGuess.textContent ='';
 		document.querySelector("h1").textContent = "het getal is hoger";
