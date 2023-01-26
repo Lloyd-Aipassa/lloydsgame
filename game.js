@@ -1,20 +1,21 @@
 let secretNumber = Math.ceil(Math.random() * 20);
 let score = 20;
-let button = document.querySelector(".check");
-document.querySelector(".check").addEventListener("click", function () {
+let button = document.getElementById("check");
+document.querySelector("#check").addEventListener("click", function () {
 	const numberGuess = document.querySelector("input").value;
+    document.querySelector("input").value = '';
 	//gewonnen
 	if (numberGuess == secretNumber) {
 		document.querySelector("h1").textContent = "Yesss";
 		// document.querySelector(".check").disabled = "false";
 		// document.querySelector(".check").style.backgroundColor = "red";
-		button.classList.add(".win");
+		button.classList.add("win");
 		document.querySelector(".secretNum").textContent = secretNumber;
 	}
 
 	//kies een hoger getal
 	else if (numberGuess < secretNumber) {
-		document.querySelector(".input").textContent = "33";
+		numberGuess.textContent ='';
 		document.querySelector("h1").textContent = "het getal is hoger";
 		if (score > 1) {
 			score--;
@@ -41,8 +42,13 @@ document.querySelector(".check").addEventListener("click", function () {
 });
 
 document.querySelector(".reset").addEventListener("click", function () {
+    document.querySelector("input").value = '';
+    button.classList.remove("win");
+    document.querySelector(".jeScore").textContent = '20';
 	document.querySelector(".secretNum").textContent = "?";
+    document.querySelector("h1").textContent =
+				"Raad het geheime nummer";
 	secretNumber = Math.ceil(Math.random() * 20);
-	document.querySelector(".check").enabled = "false";
+	score = 20;
 	console.log(secretNumber);
 });
