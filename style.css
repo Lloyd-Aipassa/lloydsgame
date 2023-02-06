@@ -4,9 +4,25 @@ html {
 	box-sizing: border-box;
 }
 
+@font-face {
+    font-family: lloydsFont;
+    src: url(/PixeloidSansBold-GOjpP.ttf);
+  }
+@font-face {
+    font-family: lloydsFontP;
+    src: url(/SuperLegendBoy-4w8Y.ttf);
+  }
+  
+
+
 h1
  {
 	color: #fff;
+    font-family: lloydsFont;
+}
+
+p{
+    font-family: lloydsFontP;
 }
 
 .secretNum{
@@ -38,11 +54,14 @@ main {
 }
 
 button {
+    font-family: lloydsFontp;
+    text-transform: uppercase;
 	border: 0;
 	background-color: #fff;
 	padding: 16px 60px;
 	text-align: center;
 	width: 20%;
+    margin: 20px 0;
     cursor: pointer;
 }
 
@@ -64,6 +83,7 @@ button {
 }
 
 input {
+    font-family: lloydsFontP;
     border: 1px solid #fff;
 	display: block;
 	width: 30%;
@@ -75,14 +95,12 @@ input {
     text-align: center;
 }
 
-.score{
+.score, .score2{
     display: flex;
     gap: 20px;
-}
-.score p{
     color: #fff;
-    
 }
+
 
 .score-card{
     background-color: cadetblue;
@@ -108,6 +126,7 @@ input {
 
 #check:active{
     border: none;
+    margin-bottom: 4px;
 }
 
 .win{
@@ -118,10 +137,127 @@ input {
 
 
 @media (max-width: 600px){
+
+    body {
+        background-color: #1d1d1d;
+        display: flex;
+        min-height: 80vh;
+        will-change: 100%;
+            /* justify-content: ;
+            align-items: flex-start; */
+    }
     .onder{
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 0px;
         margin-top: 20px;
     }
+
+    h1
+ {  
+    font-size: 24px;
+    text-align: center;
+}
+
+.secretNum{
+    background-color: #fff ;
+    color: #1d1d1d;
+    font-size: 60px;
+    padding: 20px 20px;
+}
+
+main {
+	width: 1200px;
+	height: 0px;
+	border: 1px solid #fff;
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+	border: 0;
+    margin: 20px 0;
+	background-color: #fff;
+	padding: 16px 60px;
+	text-align: center;
+	width: 50%;
+    cursor: pointer;
+}
+
+.onder button {
+	border: 0;
+	background-color: #fff;
+	padding: 16px 10px;
+	text-align: center;
+	max-width: 40%;
+}
+
+input {
+    border: 1px solid #fff;
+	display: block;
+	width: 30%;
+    height: 100px;
+    font-size: 20px;
+    background-color: #1d1d1d;
+    color: #fff;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.score{
+    position: absolute;
+    top: 0;
+    left: 25px;
+    display: flex;
+    gap: 20px;
+}
+.score2{
+    position: absolute;
+    color: #fff;
+    top: 0;
+    right: 25px;
+    display: flex;
+    gap: 20px;
+}
+.score p{
+    color: #fff;
+    
+}
+
+.score-card{
+    background-color: cadetblue;
+    padding: 0;
+    height: 0;
+}
+
+.kies-nummer{
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    height: 300px;
+    background-color: chocolate;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+}
+
+#check{
+    border-radius: 8px;
+    border-bottom: 4px solid black;
+}
+
+#check:active{
+    border: none;
+}
+
+.win{
+    background-color: red!important;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 }

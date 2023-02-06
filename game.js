@@ -6,10 +6,22 @@ document.querySelector("#check").addEventListener("click", function () {
 	const numberGuess = document.querySelector("input").value;
     document.querySelector("input").value = '';
 	
-    
+    const scoreMutatie = function(){
+        numberGuess.textContent ='';
+		if (score > 1) {
+			score--;
+			document.querySelector(".jeScore").textContent = score;
+		} else {
+			document.querySelector("h1").textContent =
+				"je hebt verloren";
+			document.querySelector(".jeScore").textContent = 0;
+		}
+    }
+
     //gewonnen
 	if (numberGuess == secretNumber) {
-		document.querySelector("h1").textContent = "Yesss";
+		document.querySelector("h1").textContent = "Winner!";
+		document.querySelector("h1").style.color = "green";
 		button.classList.add("win");
 		document.querySelector(".secretNum").textContent = secretNumber;
         if(score > highScore){
@@ -19,33 +31,18 @@ document.querySelector("#check").addEventListener("click", function () {
        
 	}
 
-	
-    
     //kies een hoger getal
 	else if (numberGuess < secretNumber) {
-		numberGuess.textContent ='';
-		document.querySelector("h1").textContent = "het getal is hoger";
-		if (score > 1) {
-			score--;
-			document.querySelector(".jeScore").textContent = score;
-		} else {
-			document.querySelector("h1").textContent =
-				"je hebt verloren";
-			document.querySelector(".jeScore").textContent = 0;
-		}
+        document.querySelector("h1").textContent = "het getal is hoger";
+        document.querySelector("h1").style.color = "red";
+        scoreMutatie()
 	}
 
 	//kies een lager getal
 	else if (numberGuess > secretNumber) {
 		document.querySelector("h1").textContent = "het getal is lager";
-		if (score > 1) {
-			score--;
-			document.querySelector(".jeScore").textContent = score;
-		} else {
-			document.querySelector("h1").textContent =
-				"je hebt verloren";
-			document.querySelector(".jeScore").textContent = 0;
-		}
+		document.querySelector("h1").style.color = "blue";
+		scoreMutatie()
 	}
 });
 
